@@ -4,13 +4,7 @@ if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGODB_URI;
 }
 
-const connect = () => {
-  setTimeout(() => mongoose.connect(dbURI, {
-      useNewUrlParser: true
-  }), 1000);
-}
-
-//mongoose.connect(dbURI);
+mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', () => {
   console.log(`Mongoose connected to ${dbURI}`);
@@ -23,8 +17,6 @@ mongoose.connection.on('error', err => {
 mongoose.connection.on('disconnected', () => {
   console.log('Mongoose disconnected');
 });
-
-
 
 const gracefulShutdown = (msg, callback) => {
   mongoose.connection.close( () => {
@@ -54,7 +46,9 @@ process.on('SIGTERM', () => {
   });
 });
 
-connect();
-
 // Bring in the Mongoose schema:
 require('./travlr');
+
+//delete mongoose.models['trips'];
+//delete mongoose.connection.collections['trips'];
+//delete mongoose.modelSchemas['trips'];
