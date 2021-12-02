@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { TripDataService } from '../services/trip-data.service';
 
 @Component({
@@ -35,6 +35,7 @@ export class AddTripComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
     if (this.addForm.valid) {
       this.tripService.addTrip(this.addForm.value)
         .then(data => {
