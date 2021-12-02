@@ -6,7 +6,8 @@ const tripsController = require('../controllers/trips');
 // express router - take trips request and pass to controller:
 router
     .route('/trips')
-    .get(tripsController.tripsList);
+    .get(tripsController.tripsList)
+    .post(tripsController.tripsAddTrip);
 
 router
     .route('/trips/:tripCode')

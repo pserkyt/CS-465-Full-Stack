@@ -1,4 +1,10 @@
 <!-- <pre>{{ trips | json }}</pre> -->
+<!-- Add trip button: -->
+<div>
+    <button (click)="addTrip()" class="btn btn-info">Add Trip</button>
+</div>
+
+<!-- List trips: -->
 <div class="row">
     <div *ngFor="let trip of trips">
         <app-trip-card [trip]="trip" class ="card-deck mt-2"></app-trip-card>
