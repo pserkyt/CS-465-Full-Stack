@@ -104,10 +104,26 @@ const tripsUpdateTrip = async (req, res) => {
         });
 }
 
+const tripsDeleteTrip = async (req, res) => {
+    model
+        .findOneAndDelete({ 'code': req.params.tripCode })
+        .exec((err) => {
+            if (err) {
+                return res
+                    .status(404) // error
+                    .json(err);
+            } else {
+                return res
+                    .status(200) // success
+            }
+        });
+}
+
 module.exports = {
     tripsList,
     tripsFindCode,
     tripsAddTrip,
-    tripsUpdateTrip
+    tripsUpdateTrip,
+    tripsDeleteTrip
 };
 
