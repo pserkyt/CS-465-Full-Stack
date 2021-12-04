@@ -7,11 +7,12 @@ const tripsController = require('../controllers/trips');
 router
     .route('/trips')
     .get(tripsController.tripsList)
-    .post(tripsController.tripsAddTrip);
+    .post(tripsController.tripsAddTrip); // post goes here
 
 router
     .route('/trips/:tripCode')
-    .get(tripsController.tripsFindCode);
+    .get(tripsController.tripsFindCode)
+    .put(tripsController.tripsUpdateTrip); // update goes here
 
 module.exports = router;
 
