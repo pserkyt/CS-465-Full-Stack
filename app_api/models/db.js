@@ -46,6 +46,7 @@ process.on('SIGTERM', () => {
 
 // Bring in the Mongoose schema:
 require('./travlr');
+require('./user');
 
 //delete mongoose.models['trips'];
 //delete mongoose.connection.collections['trips'];
